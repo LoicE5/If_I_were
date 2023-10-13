@@ -1,12 +1,12 @@
-var scene = new THREE.Scene();
-var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 2600 );
-var renderer = new THREE.WebGLRenderer( {alpha: true} );
+let scene = new THREE.Scene();
+let camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 2600 );
+let renderer = new THREE.WebGLRenderer( {alpha: true} );
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
 /*⬆ Création de l'ensemble des paramètres nécessaires à l'environnement THREE ⬆*/
 
 function auto(){
-    var ratio = window.innerWidth/window.innerHeight;
+    let ratio = window.innerWidth/window.innerHeight;
     return camera.position.z*ratio/1.026
 }
 
@@ -47,10 +47,10 @@ window.addEventListener('wheel', freeScroll);
 /* Syntaxe de la variable "check" :
 check = [Main_title,Scene1,Scene2,Scene3,etc]; → Utilité : log les intéractions avec la caméra pour la bloquer uniquement une fois par scène
 ↳ Utile pour la fonction stopScroll(). */
-var check = [true,false,false,false,false,false,false,false,false];
+let check = [true,false,false,false,false,false,false,false,false];
 
 function freeScroll(e){
-    var delta = e.deltaY;
+    let delta = e.deltaY;
     stopScroll(19450,1,1000);
     stopScroll(16850,2,1000);
     stopScroll(15050,3,1000);
@@ -105,7 +105,7 @@ function stopScroll(camPosZ,sceneNo,delay){
 
 /* Permet de déplacer la caméra grâce aux flèches directionnelles du clavier */
 window.onkeydown = function(e){
-    var key_code=e.which||e.keyCode;
+    let key_code=e.which||e.keyCode;
     console.log(key_code);
 		switch(key_code){
 			case 37: //left arrow key
@@ -127,8 +127,8 @@ window.onkeydown = function(e){
 /* Permet d'orienter la caméra via un maintien du clic gauche & un glissement de la souris */
 window.onmousedown = function(){
     window.onmousemove = function(e){
-        var mouseX = e.clientX - window.innerWidth/2;
-        var mouseY = e.clientY - window.innerHeight/2;
+        let mouseX = e.clientX - window.innerWidth/2;
+        let mouseY = e.clientY - window.innerHeight/2;
         camera.position.x = (mouseX - camera.position.x) * 0.5;
         camera.position.y = (mouseY- camera.position.y) * 0.5;
         camera.lookAt(scene.position);
@@ -187,11 +187,11 @@ addImage('images/swiss_knife_1_opti.jpg',807,675,0.8,450,-80,3750) // Swissh kni
 function addImage(path,width,height,scale,X,Y,Z){
     const finalWidth = width*scale;
     const finalHeight = height*scale;
-    var img = new THREE.MeshBasicMaterial({
+    let img = new THREE.MeshBasicMaterial({
         map:THREE.ImageUtils.loadTexture(path)
     });
     img.map.needsUpdate = true;
-    var plane = new THREE.Mesh(new THREE.PlaneGeometry(finalWidth, finalHeight),img);
+    let plane = new THREE.Mesh(new THREE.PlaneGeometry(finalWidth, finalHeight),img);
     plane.overdraw = true;
     plane.position.x = X;
     plane.position.y = Y;
@@ -201,18 +201,18 @@ function addImage(path,width,height,scale,X,Y,Z){
 }
 
 function addText(fontFamily,color,X,Y,Z,fontSize,message){
-    var loader = new THREE.FontLoader();
+    let loader = new THREE.FontLoader();
 	loader.load(fontFamily, function(font) {
-		var xMid, text;
+		let xMid, text;
 
-		var matLite = new THREE.MeshBasicMaterial({
+		let matLite = new THREE.MeshBasicMaterial({
 			color: color,
 			side: THREE.DoubleSide
 		});
 
-		var shapes = font.generateShapes(message, fontSize);
+		let shapes = font.generateShapes(message, fontSize);
 
-		var geometry = new THREE.ShapeBufferGeometry(shapes);
+		let geometry = new THREE.ShapeBufferGeometry(shapes);
 
 		geometry.computeBoundingBox();
 
@@ -227,14 +227,14 @@ function addText(fontFamily,color,X,Y,Z,fontSize,message){
 		text.position.z = Z;
         scene.add(text);
         
-		var holeShapes = [];
+		let holeShapes = [];
 
-		for (var i = 0; i < shapes.length; i++) {
-			var shape = shapes[i];
+		for (let i = 0; i < shapes.length; i++) {
+			let shape = shapes[i];
 
 			if (shape.holes && shape.holes.length > 0) {
-				for (var j = 0; j < shape.holes.length; j++) {
-					var hole = shape.holes[j];
+				for (let j = 0; j < shape.holes.length; j++) {
+					let hole = shape.holes[j];
 					holeShapes.push(hole);
 				}
 			}
@@ -254,9 +254,9 @@ particles(1500);
 function particles(amount){
 
     for(i=0;i<amount;i++){
-        var geometry = new THREE.CircleGeometry( 2, 20 );
-        var material = new THREE.MeshBasicMaterial( { color: 0xfffff0 } );
-        var molecul = new THREE.Mesh( geometry, material );
+        let geometry = new THREE.CircleGeometry( 2, 20 );
+        let material = new THREE.MeshBasicMaterial( { color: 0xfffff0 } );
+        let molecul = new THREE.Mesh( geometry, material );
         molecul.position.x=nombreAleatoire(-window.innerWidth,window.innerWidth);
         molecul.position.y=nombreAleatoire(-window.innerHeight,window.innerHeight);
         molecul.position.z=nombreAleatoire(0,23400);
@@ -287,7 +287,7 @@ function moveZCamTo(Zpos){
 }
 
 function onReady(callback) {
-    var intervalId = window.setInterval(function() {
+    let intervalId = window.setInterval(function() {
       if (document.getElementsByTagName('body')[0] != undefined) {
         // window.clearInterval(intervalId);
         callback.call(this);
