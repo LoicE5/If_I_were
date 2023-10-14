@@ -1,0 +1,235 @@
+*,*::after,*::before {
+    box-sizing: border-box;
+}
+
+@font-face{
+    font-family: "Futura";
+    src: url('/fonts/futura.woff2') format("woff2"),
+    url('/fonts/futura.woff') format("woff");
+    font-display: swap;
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+    background-color : black;
+    overflow: hidden;
+    font-family: "Futura";
+}
+
+body,canvas {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+}
+
+canvas {
+    display: block;
+}
+
+#music-player {
+    position: fixed;
+    right: auto;
+    top: auto;
+    left: 12.5%;
+    bottom: 17%;
+    border-radius: 100px;
+    border: solid 2px white;
+    background-color: transparent;
+    padding: 5px;
+    transition: opacity 1s, visibility 0.5s;
+    visibility: hidden;
+    opacity: 0;
+}
+
+nav {
+    display: flex;
+    width: 100%;
+    position: fixed;
+    top: 5px;
+}
+
+nav img {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    transition: transform 0.5s;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+nav img:hover {
+    transform: rotate(10deg);
+    cursor: pointer;
+}
+
+#info {
+    position: fixed;
+    top: auto;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    bottom: 10px;
+    display:flex;
+    width: 95%;
+    height: 20%;
+    right: auto;
+    display: flex;
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 1s, visibility 1s;
+    /* border: red dotted 2px; */
+}
+
+section {
+    display: flex;
+    width: 33.3%;
+    align-items: center;
+}
+
+.arrowsimg {
+    width: 164px;
+    height: 108px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+#info p {
+    color: white;
+    display: flex;
+    margin-left: 20px;
+}
+
+.downscrollimg,.clickandholdimg {
+    width: 92px;
+    height: 126px;
+    margin-left: 20px;
+}
+
+noscript {
+    width: 90vw;
+    height: 90vh;
+    position: fixed;
+    margin-left: 5vw;
+    margin-top: 5vh;
+    display: block;
+    background-image: linear-gradient(to right, rgba(150,150,150,1), rgba(150,150,150,0.9));
+    border-radius: 20px;
+    border: solid 2px white;
+    color: black;
+    z-index: 1;
+    overflow: scroll;
+}
+
+noscript h1, noscript p {
+    display: block;
+    line-height: 2;
+    text-align: center;
+}
+
+noscript h1 {
+    font-size: 3rem;
+    margin-top: 5%;
+}
+
+noscript p,#please-rotate p {
+    font-size: 1.7rem;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+noscript a {
+    text-decoration-line: none;
+    color: blue;
+    transition: text-shadow 0.5s;
+}
+
+noscript a:visited {
+    text-decoration-line: none;
+    color: blue;
+}
+
+noscript a:hover {
+    text-shadow: 2px 2px 15px black;
+}
+
+noscript a:active {
+    color: blueviolet;
+}
+
+#please-rotate {
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    position: fixed;
+    background-color: rgba(0,0,0,0.8);
+    color: white;
+    visibility: hidden;
+    text-align: center;
+}
+
+#please-rotate img {
+    width: 100px;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20%;
+}
+
+nav button {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Code récupéré depuis : http://www.coolfields.co.uk/2016/05/text-for-screen-readers-only-updated/, modifié */
+.screen-reader-text { 
+    border: none;   
+    clip: rect(1px, 1px, 1px, 1px); 
+    clip-path: inset(50%);
+    height: 1px; 
+    margin: -1px;
+    width: 1px; 
+    overflow: hidden; 
+    position: absolute !important;
+    word-wrap: normal !important;
+}
+
+.loader {
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    opacity: 1;
+    display: block;
+    position: fixed;
+    z-index: 2;
+}
+
+.loader h1 {
+    margin-top: 30px;
+    font-size: 2em;
+    text-align: center;
+    color: white;
+    animation: loaderkeyframe 2s infinite;
+    transition: opacity 0.5s;
+    font-weight: normal;
+}
+
+.loader img {
+    margin-left: 50vw;
+    margin-top: 10%;
+    transform: translateX(-50%);
+}
+
+@keyframes loaderkeyframe {
+    0% {opacity: 0.6}
+    50% {opacity: 1}
+    100% {opacity: 0.6}
+}
