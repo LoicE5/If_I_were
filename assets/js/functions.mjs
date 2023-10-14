@@ -61,18 +61,20 @@ export function stopScroll(camPosZ,sceneNo,delay){
 }
 
 export function addImage(path,width,height,scale,X,Y,Z){
-    const finalWidth = width*scale;
-    const finalHeight = height*scale;
-    let img = new THREE.MeshBasicMaterial({
-        map:THREE.ImageUtils.loadTexture(path)
+    const finalWidth = width * scale;
+    const finalHeight = height * scale;
+    
+    const textureLoader = new THREE.TextureLoader();
+    textureLoader.load(path, function (texture) {
+        texture.needsUpdate = true;
+        texture.minFilter = THREE.LinearFilter;
+    
+        const img = new THREE.MeshBasicMaterial({ map: texture })
+        const plane = new THREE.Mesh(new THREE.PlaneGeometry(finalWidth, finalHeight), img)
+        plane.position.set(X, Y, Z)
+    
+        scene.add(plane)
     })
-    img.map.needsUpdate = true;
-    let plane = new THREE.Mesh(new THREE.PlaneGeometry(finalWidth, finalHeight),img)
-    plane.overdraw = true;
-    plane.position.x = X;
-    plane.position.y = Y;
-    plane.position.z = Z;
-    scene.add(plane)
 }
 
 export function addText(fontFamily,color,X,Y,Z,fontSize,message){
