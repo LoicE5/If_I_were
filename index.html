@@ -1,94 +1,61 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <base href="*">
-    <title>Mon portrait chinois</title>
-    <link rel="icon" href="icons/favicon.ico">
-    <link rel="stylesheet" href="styles.css">
-    <script src="three.min.js"></script>
-    <script src="app.mjs" type="module" defer></script>
+    <title>If I were...</title>
+    <link rel="icon" href="assets/media/icons/favicon.ico">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="assets/js/lib/three.min.js"></script>
+    <script src="assets/js/app.mjs" type="module" defer></script>
 </head>
 <body>
 
     <div class="loader">
-      <img src="icons/loading.gif" alt="">
-      <h1>Chargement...</h1>
+      <img src="assets/media/icons/loading.gif" alt="">
+      <h1>Loading...</h1>
       </div>
 
-    <!-- Apparaît uniquement lorsque la hauteur de la page est supérieure à sa largeur -->
+    <!-- Appears only when page height is greater than page width -->
     <div id="please-rotate">
-        <img src="icons/please-rotate.png" alt="">
+        <img src="assets/media/icons/please-rotate.png" alt="">
         <p>
-            Afin de profiter d'une expérience de navigation optimale, merci de bien vouloir tourner votre appareil.
+            For the best browsing experience, please rotate your device.
         </p>
     </div>
 
-    <!-- Si le JavaScript est désactivé -->
+    <!-- If JavaScript is disabled -->
     <noscript>
-        <h1>OH-OH</h1>
-        <p>Vous avez besoin de JavaScript pour explorer ce site...<br>Merci d'actualiser la page après avoir activé Javascript dans les paramètres de votre navigateur ou de votre extension... Plus d'informations <a href="https://enable-javascript.com/fr/" target="_blank">ici</a>.
+        <h1>UH-OH</h1>
+        <p>You need JavaScript to explore this site...<br>Please refresh the page after enabling Javascript in your browser or extension settings... More information <a href="https://enable-javascript.com/" target="_blank">here</a>.
         </p>
     </noscript>
 
-    <!-- Barre de navigation
-         Les <button> sont là pour que les lecteurs d'écran considèrent bien les éléments comme cliquables -->
+    <!-- Navbar
+         The <button> are there so that screen readers see elements as clickable. -->
     <nav>
-        <div class="container">
-            <button onclick="moveZCamTo(21600)"><img src="icons/home.png" alt="Titre"></button>
-            <button onclick="moveZCamTo(19450)"><img src="icons/intro.png" alt="Introduction"></button>
-            <button onclick="moveZCamTo(16850)"><img src="icons/movie.png" alt="Si j'étais un film..."></button>
-            <button onclick="moveZCamTo(15050)"><img src="icons/game.png" alt="Si j'étais un personnage de jeux-vidéos..."></button>
-            <button onclick="moveZCamTo(12700)"><img src="icons/color.png" alt="Si j'étais une couleur..."></button>
-            <button onclick="moveZCamTo(10650)"><img src="icons/country.png" alt="Si j'étais un pays..."></button>
-            <button onclick="moveZCamTo(8750)"><img src="icons/company.png" alt="Si j'étais une entreprise..."></button>
-            <button onclick="moveZCamTo(6950)"><img src="icons/music.png" alt="Si j'étais un morceau de musique..."></button>
-            <button onclick="moveZCamTo(4450)"><img src="icons/tool.png" alt="Si j'étais un outil..."></button>
-        </div>
+        <div class="container"></div>
     </nav>
 
-    <!--⬇ Code HTML exclusivement dédié à l'accessibilité du site pour les personnes malvoyantes ⬇-->
-    <div class="screen-reader-text">
-        <h1>Si j’étais un film, je serai avatar.</h1>
-        <p>Le scénario de ce film nous plonge dans un univers parallèle où les humains sont les intrus dans un monde extraterrestre. Non seulement ce choix était à contre-courant des idéaux cinématographiques de science-fiction de l’époque, mais il s’est également avéré fructueux. Ce film représente ainsi bien mes convictions personnelles, telles que, parfois, aller à contre-courant peut s’avérer source de succès.
-        </p>
+    <!-- HTML code dedicated exclusively to making the site accessible to the visually impaired -->
+    <div class="screen-reader-text"></div>
 
-        <h1>Si j’étais un personnage de jeux vidéos, je serai Giovanni.</h1>
-        <p>Personnage emblématique de la saga Pokémon, Giovanni a incarné le mal durant les premières versions. Outre ses convictions souvent douteuses, on peut constater chez ce personnage un leadership, une polyvalence (de par ses différents rôles), ainsi qu’un pragmatisme qui ne le cloisonne néanmoins pas dans ses opinions. Giovanni a une personnalité qui me correspond, et un potentiel scénaristique inexploré.</p>
-
-        <h1>Si j’étais une couleur, je serai le bleu.</h1>
-        <p>Couleur représentant la nature et la planète, de par le ciel et la mer, elle représente également selon moi la modernité, le progrès. Le bleu est une couleur qui, sous ses différentes nuances, correspond à merveille à une interface, quelle qu’elle soit. Elle peut également être utilisée en peinture, en art décoratif. Ce n’est pas pour rien qu’on la retrouve également sur les drapeaux français & européens.</p>
-        
-        <h1>Si j’étais un pays, je serai Singapour.</h1>
-        <p>Une cité-état qui a les qualités non négligeables d’avoir une économie flamboyante, des rues & bâtiments impeccables, et un taux de criminalité au ras des pâquerettes. Cela est rendu possible grâce aux engagements de l’état de garantir une prospérité économique via des positions ambitieuses sur les marchés mondiaux, et de protéger sa population en appliquant des règles strictes respectées par tous. Bien que ce pays ne corresponde pas à tout le monde, il est pour moi l’image d’un pays sûr et prospère, et c’est pourquoi je l’ai inscrit dans ce portrait chinois.</p>
-
-        <h1>Si j’étais une entreprise, je serai Coinbase Ltd.</h1>
-        <p>Pionnier et leader dans l’échange d’actifs virtuels, Coinbase a pour ambition de radicalement modifier le modèle économique mondial en se plaçant en tant qu’acteur majeur de l’évolution de la blockchain. Les objectifs, convictions et aspirations de cette entreprise sont en corrélation avec mes convictions personnelles, concernant une économie plus libre, plus indépendante et plus juste pour tous. À terme, Coinbase vise une démocratisation des actifs virtuels, et une utilisation de ceux-ci dans un cadre autre que la spéculation, et c’est un objectif auquel j’adhère avec grand intérêt.</p>
-
-        <h1>Si j’étais un morceau de musique, je serai Shoot To Thrill de AC/DC.</h1>
-        <p>Ce morceau a la particularité d’offrir un rythme soutenu et une ambiance musicale acharnée. Ce morceau de musique, en mon opinion, reflète la volonté d’un individu de réussir, de devenir meilleur, et de gagner, quelqu’en soit le prix. Je trouve ce morceau très évocateur, il crée une ambiance telle que rien n’est impossible, et que l’acharnement et la persévérance paye. De plus, le rythme est très bien géré, les paroles sont efficaces et correspondent à l’ambiance globale. J’apprécie ce morceau car il me motive dans la plupart de mes travaux. C’est notamment pour ça qu’il se trouve dans ce portrait chinois.</p>
-
-        <h1>Si j’étais un outil, je serai un couteau suisse.</h1>
-        <p>Allégorie de la polyvalence, et analogie convergent à merveille avec l’esprit MMI, le couteau suisse se veut polyvalent, répondant à moult problématiques. Un couteau suisse a l’interêt non négligeable de rassembler un ensemble de fonctions en un seul outil, le rendant rapidement indispensable. J’aspire personnellement à acquérir cette polyvalence, à devenir un véritable couteau suisse capable de résoudre une multitude de problématiques de façon efficace.</p>
-    </div>
-    <!--⬆ Fin de la <div> dédiée à l'accessibilité ⬆-->
-
-    <!-- Ensemble de sections avec images expliquant à l'utilisateur comment se servir du site.
-         Disparaît dès la première interaction -->
+    <!-- Set of sections with images explaining how to use the site.
+        Disappears on first interaction -->
     <div id="info">
         <section>
-        <img src="icons/arrows.png" alt="" class="arrowsimg">
-        <p>Utilisez les flèches directionnelles pour vous déplacer dans l'espace.</p>
+        <img src="assets/media/icons/arrows.png" alt="" class="arrowsimg">
+        <p>Use the directional arrows to move around.</p>
     </section>
     <section>
-        <img src="icons/downscroll.png" alt="" class="downscrollimg">
-        <p>Défilez vers le bas pour explorer le site.</p>
+        <img src="assets/media/icons/downscroll.png" alt="" class="downscrollimg">
+        <p>Scroll down to explore the site.</p>
     </section>
     <section>
-        <img src="icons/clickandhold.png" alt="" class="clickandholdimg">
-        <p>Cliquez et maintenez le clic appuyé pour voir la scène sous un autre angle.</p>
+        <img src="assets/media/icons/clickandhold.png" alt="" class="clickandholdimg">
+        <p>Click and hold to view the scene from another angle.</p>
     </section>
     </div>
 

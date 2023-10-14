@@ -217,7 +217,7 @@ nav button {
     font-size: 2em;
     text-align: center;
     color: white;
-    animation: onsamuse 2s infinite;
+    animation: loaderkeyframe 2s infinite;
     transition: opacity 0.5s;
     font-weight: normal;
 }
@@ -228,7 +228,7 @@ nav button {
     transform: translateX(-50%);
 }
 
-@keyframes onsamuse {
+@keyframes loaderkeyframe {
     0% {opacity: 0.6}
     50% {opacity: 1}
     100% {opacity: 0.6}
