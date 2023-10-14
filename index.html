@@ -8,7 +8,8 @@
     <title>Mon portrait chinois</title>
     <link rel="icon" href="icons/favicon.ico">
     <link rel="stylesheet" href="styles.css">
-    <script src="threejs_library/build/three.js"></script>
+    <script src="three.min.js"></script>
+    <script src="app.mjs" type="module" defer></script>
 </head>
 <body>
 
@@ -18,8 +19,8 @@
       </div>
 
     <!-- Apparaît uniquement lorsque la hauteur de la page est supérieure à sa largeur -->
-    <div id="plzrotate">
-        <img src="icons/plzrotate.png" alt="">
+    <div id="please-rotate">
+        <img src="icons/please-rotate.png" alt="">
         <p>
             Afin de profiter d'une expérience de navigation optimale, merci de bien vouloir tourner votre appareil.
         </p>
@@ -91,7 +92,6 @@
     </section>
     </div>
 
-    <audio src="" type="audio/m4a" controls id="shoottothrill"></audio>
-    <script src="app.js"></script>
+    <audio src="" type="audio/m4a" controls id="music-player"></audio>
 </body>
 </html>

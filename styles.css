@@ -31,7 +31,7 @@ canvas {
     display: block;
 }
 
-#shoottothrill {
+#music-player {
     position: fixed;
     right: auto;
     top: auto;
@@ -138,7 +138,7 @@ noscript h1 {
     margin-top: 5%;
 }
 
-noscript p,#plzrotate p {
+noscript p,#please-rotate p {
     font-size: 1.7rem;
     margin-left: 40px;
     margin-right: 40px;
@@ -163,7 +163,7 @@ noscript a:active {
     color: blueviolet;
 }
 
-#plzrotate {
+#please-rotate {
     width: 100vw;
     height: 100vh;
     z-index: 1;
@@ -174,7 +174,7 @@ noscript a:active {
     text-align: center;
 }
 
-#plzrotate img {
+#please-rotate img {
     width: 100px;
     height: 100px;
     margin-left: auto;
