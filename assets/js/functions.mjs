@@ -60,7 +60,7 @@ export function stopScroll(camPosZ,sceneNo,delay){
     }
 }
 
-export function addImage(path,width,height,scale,X,Y,Z){
+export async function addImage(path,width,height,scale,X,Y,Z){
     const finalWidth = width * scale;
     const finalHeight = height * scale;
     
@@ -77,7 +77,7 @@ export function addImage(path,width,height,scale,X,Y,Z){
     })
 }
 
-export function addText(fontFamily,color,X,Y,Z,fontSize,message){
+export async function addText(fontFamily,color,X,Y,Z,fontSize,message){
     let loader = new THREE.FontLoader()
 	loader.load(fontFamily, function(font) {
 		let xMid, text;
@@ -125,7 +125,7 @@ export function render(){
     renderer.render(scene, camera)
 }
 
-export function particles(amount){
+export async function particles(amount){
 
     for(let i=0;i<amount;i++){
         let geometry = new THREE.CircleGeometry( 2, 20 )
@@ -168,7 +168,7 @@ export function onReady(callback) {
     }, 1000)
 }
 
-export function addNavButton(targetZPos, imgPath, alt) {
+export async function addNavButton(targetZPos, imgPath, alt) {
     const element = document.createElement('button')
     element.classList.add('nav-button')
     element.innerHTML += `<img src="${imgPath}" alt="${alt}">`
@@ -176,7 +176,7 @@ export function addNavButton(targetZPos, imgPath, alt) {
     navContainer.appendChild(element)
 }
 
-export function addAccessibilityText(fontSize, message) {
+export async function addAccessibilityText(fontSize, message) {
     const tagName = fontSize >= titleMinFontSize ? 'h1' : 'p'
     accessibilityDivContainer.innerHTML += `<${tagName}>${message}</${tagName}>`
 }
