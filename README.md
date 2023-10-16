@@ -21,4 +21,4 @@ This project have been realized using HTML, CSS, JavaScript and the ThreeJS libr
 
 ### Links
 
-**[Get to the project here !](https://loice5.github.io/Chinese_Portrait/)**
+**[Get to the project here !](https://loice5.github.io/If_I_were/)**
